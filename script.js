@@ -42,6 +42,26 @@ window.addEventListener('load', () => {
     }
 });
 
+// Üste Çık Fonksiyonu
+function topFunction() {
+  document.body.scrollTop = 0; 
+  document.documentElement.scrollTop = 0; 
+}
+
+// Üste çık düğmesini görüntülemek için sayfa kaydırma olayı
+window.onscroll = function() {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("goTopBtn").style.display = "block";
+  } else {
+    document.getElementById("goTopBtn").style.display = "none";
+  }
+}
+
+
 // Doğru cevapları belirleyin
 const correctAnswers = {
     teknoloji: 'A',
