@@ -55,6 +55,12 @@ body {
     scrollbar-width: none; 
 }
 
+img {
+  max-width: 100%; /* Görselin en fazla kapsayıcısının %100'ü kadar geniş olmasını sağlar */
+  height: auto;      /* Yüksekliği otomatik olarak ayarla */
+}
+
+
 .category-slider::-webkit-scrollbar { 
     display: none; 
 }
