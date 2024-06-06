@@ -1,12 +1,10 @@
-// script.js
 const slides = document.querySelectorAll('.slide');
 const cardView = document.querySelector('.card-view');
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const cardContents = document.querySelectorAll('.card-content');
 const categorySlider = document.querySelector('.category-slider');
-const slideWidth = slides[0].offsetWidth; // İlk slide'ın genişliği
-const fontIncreaseBtn = document.querySelector('.font-increase');
-const fontDecreaseBtn = document.querySelector('.font-decrease');
+const fontIncreaseBtn = document.getElementById('increase-font');
+const fontDecreaseBtn = document.getElementById('decrease-font');
 
 // Kategoriye tıklandığında kartı göster
 slides.forEach(slide => {
@@ -44,72 +42,77 @@ window.addEventListener('load', () => {
     }
 });
 
+// Doğru cevapları belirleyin
+const correctAnswers = {
+    teknoloji: 'A',
+    moda: 'A',
+    sanat: 'B',
+    yemek: 'A',
+     seyahat: 'B',
+    // Diğer kategoriler ve doğru cevapları ekleyin
+};
+
 // Cevap kontrol fonksiyonu
 function checkAnswer(category, selectedAnswer) {
-    const quizId = `${category}-quiz`;
     const resultId = `${category}-result`;
-    const correctAnswer = category === 'teknoloji' ? 'A' : 'B'; // Teknoloji için doğru cevap A, diğerleri için B
-
+    const correctAnswer = correctAnswers[category];
     const resultElement = document.getElementById(resultId);
 
     // Doğru cevap seçilmişse
     if (selectedAnswer === correctAnswer) {
         resultElement.innerHTML = 'Doğru Cevap!';
         resultElement.style.color = 'green';
-        
-        // Tüm cevap seçeneklerini devre dışı bırak
-        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
-            input.disabled = true;
-        });
 
         // Doğru seçilen cevabı yeşil yap
         const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
-        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
+        correctAnswerLabel.style.backgroundColor = '#4CAF50';
         correctAnswerLabel.style.color = '#fff';
 
     } else { // Yanlış cevap seçilmişse
         resultElement.innerHTML = 'Yanlış Cevap!';
         resultElement.style.color = 'red';
 
-        // Tüm cevap seçeneklerini devre dışı bırak
-        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
-            input.disabled = true;
-        });
-
         // Yanlış seçilen cevabı kırmızı yap
         const wrongAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${selectedAnswer}"] + label`);
-        wrongAnswerLabel.style.backgroundColor = '#f44336'; 
+        wrongAnswerLabel.style.backgroundColor = '#f44336';
         wrongAnswerLabel.style.color = '#fff';
 
         // Doğru cevabı yeşil yap
         const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
-        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
+        correctAnswerLabel.style.backgroundColor = '#4CAF50';
         correctAnswerLabel.style.color = '#fff';
-      
-      // Seçilen cevabı koyu yap
-const selectedLabel = document.querySelector(`input[name="${category}-q1"]:checked + label`);
-selectedLabel.style.fontWeight = 'bold';
     }
-}
 
-// Font Boyutu Kontrol Düğmeleri
-const increaseFontBtn = document.getElementById('increase-font');
-const decreaseFontBtn = document.getElementById('decrease-font');
+    // Tüm cevap seçeneklerini devre dışı bırak
+    document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
+        input.disabled = true;
+    });
+}
 
 // Font Boyutu Değiştirme Fonksiyonu
 function changeFontSize(increment) {
-  cardContents.forEach(content => {
-    const textElements = content.querySelectorAll('p, li, h2, h3'); 
-    textElements.forEach(element => {
-      let currentFontSize = parseFloat(getComputedStyle(element).fontSize); // Hesaplanmış font boyutunu al
-      currentFontSize += increment;
-      element.style.fontSize = `${currentFontSize}px`; 
+    cardContents.forEach(content => {
+        const textElements = content.querySelectorAll('p, li, h2, h3');
+        textElements.forEach(element => {
+            let currentFontSize = parseFloat(getComputedStyle(element).fontSize); // Hesaplanmış font boyutunu al
+            currentFontSize += increment;
+            element.style.fontSize = `${currentFontSize}px`;
+        });
     });
-  });
 }
 
 // Butonlara Olay Dinleyicileri Ekle
-increaseFontBtn.addEventListener('click', () => changeFontSize(2)); // 2px artır
-decreaseFontBtn.addEventListener('click', () => changeFontSize(-2)); // 2px azalt
+fontIncreaseBtn.addEventListener('click', () => changeFontSize(2)); // 2px artır
+fontDecreaseBtn.addEventListener('click', () => changeFontSize(-2)); // 2px azalt
 
-// ... (diğer kodlar) ...
+// Her kategori için ayrı quiz kontrolü ekleyin
+cardContents.forEach(cardContent => {
+    const category = cardContent.dataset.category;
+    const answers = cardContent.querySelectorAll(`input[name="${category}-q1"]`);
+
+    answers.forEach(answer => {
+        answer.addEventListener('click', () => {
+            checkAnswer(category, answer.value);
+        });
+    });
+});
