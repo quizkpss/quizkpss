@@ -1,10 +1,13 @@
-// script.js
 const slides = document.querySelectorAll('.slide');
 const cardView = document.querySelector('.card-view');
 const darkModeToggle = document.querySelector('.dark-mode-toggle');
 const cardContents = document.querySelectorAll('.card-content');
 const categorySlider = document.querySelector('.category-slider');
 const slideWidth = slides[0].offsetWidth; // İlk slide'ın genişliği
+
+// Font Boyutu Kontrol Düğmeleri
+const increaseFontBtn = document.getElementById('increase-font');
+const decreaseFontBtn = document.getElementById('decrease-font');
 
 // Kategoriye tıklandığında kartı göster
 slides.forEach(slide => {
@@ -28,8 +31,8 @@ slides.forEach(slide => {
 // Karanlık mod işlevi
 darkModeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    darkModeToggle.classList.toggle('active'); // Karanlık mod ikonunu değiştir
-    slides.forEach(slide => slide.classList.toggle('dark-mode')); // Menü öğeleri için de dark-mode sınıfını ekle veya kaldır
+    darkModeToggle.classList.toggle('active'); 
+    slides.forEach(slide => slide.classList.toggle('dark-mode')); 
 });
 
 // Sayfa yüklendiğinde ilk kartı göster
@@ -44,48 +47,28 @@ window.addEventListener('load', () => {
 
 // Cevap kontrol fonksiyonu
 function checkAnswer(category, selectedAnswer) {
-    const quizId = `${category}-quiz`;
-    const resultId = `${category}-result`;
-    const correctAnswer = category === 'teknoloji' ? 'A' : 'B'; // Teknoloji için doğru cevap A, diğerleri için B
-
-    const resultElement = document.getElementById(resultId);
-
-    // Doğru cevap seçilmişse
-    if (selectedAnswer === correctAnswer) {
-        resultElement.innerHTML = 'Doğru Cevap!';
-        resultElement.style.color = 'green';
-        
-        // Tüm cevap seçeneklerini devre dışı bırak
-        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
-            input.disabled = true;
-        });
-
-        // Doğru seçilen cevabı yeşil yap
-        const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
-        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
-        correctAnswerLabel.style.color = '#fff';
-
-    } else { // Yanlış cevap seçilmişse
-        resultElement.innerHTML = 'Yanlış Cevap!';
-        resultElement.style.color = 'red';
-
-        // Tüm cevap seçeneklerini devre dışı bırak
-        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
-            input.disabled = true;
-        });
-
-        // Yanlış seçilen cevabı kırmızı yap
-        const wrongAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${selectedAnswer}"] + label`);
-        wrongAnswerLabel.style.backgroundColor = '#f44336'; 
-        wrongAnswerLabel.style.color = '#fff';
-
-        // Doğru cevabı yeşil yap
-        const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
-        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
-        correctAnswerLabel.style.color = '#fff';
-      
-      // Seçilen cevabı koyu yap
-const selectedLabel = document.querySelector(`input[name="${category}-q1"]:checked + label`);
-selectedLabel.style.fontWeight = 'bold';
-    }
+    // ... (Bu kısım önceki cevapla aynı kalabilir) ...
 }
+
+// Font Boyutu Değiştirme
+increaseFontBtn.addEventListener('click', () => {
+    cardContents.forEach(content => {
+        const textElements = content.querySelectorAll('p, li, h2, h3'); 
+        textElements.forEach(element => {
+            const currentFontSize = parseFloat(element.style.fontSize) || 16; 
+            element.style.fontSize = `${currentFontSize + 2}px`; 
+        });
+    });
+});
+
+decreaseFontBtn.addEventListener('click', () => {
+    cardContents.forEach(content => {
+        const textElements = content.querySelectorAll('p, li, h2, h3');
+        textElements.forEach(element => {
+            const currentFontSize = parseFloat(element.style.fontSize) || 16;
+            if (currentFontSize > 10) { 
+                element.style.fontSize = `${currentFontSize - 2}px`;
+            }
+        });
+    });
+});
