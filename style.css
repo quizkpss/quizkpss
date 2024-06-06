@@ -1,4 +1,3 @@
-/* style.css */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -61,8 +60,8 @@ body {
 }
 
 .slide {
-    min-width: 100px;
-    padding: 10px 20px;
+    min-width: 125px; /* Slide genişliği */
+    padding: 75px 75px; /* Padding ayarı */
     background-color: #fff; 
     border-radius: 5px;
     margin-right: 10px;
@@ -169,7 +168,7 @@ body.dark-mode {
     color: #ffc107; 
 }
 
-/* Karanlık modda ikon renkleri - Daha renkli ve modern */
+/* Karanlık modda ikon renkleri */
 .dark-mode-toggle .fa-moon {
     color: #d9d9d9; 
 }
@@ -250,4 +249,37 @@ body.dark-mode {
 
 .dark-mode-toggle .fa-moon {
     color: #ffc107; /* Ay sarı */
+}
+
+/* Font Kontrol Stilleri */
+.font-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* İçerikle arasında boşluk bırakmak için */
+}
+
+.font-controls button {
+   margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff0;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+
+  
+}
+
+/* ...diğer stiller... */
+
+/* Font Kontrol Düğmeleri - Karanlık Mod */
+.dark-mode .font-controls button {
+  background-color: #333; /* Koyu arka plan */
+  color: #fff;            /* Açık renk metin */
+  border: 1px solid #ccc; /* Daha açık bir kenarlık */
+}
+
+.dark-mode .font-controls button:hover {
+  background-color: #555; /* Daha açık bir hover rengi */
 }
