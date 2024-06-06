@@ -103,6 +103,7 @@ img {
 
 .card-content.active {
     display: block; 
+    padding: 20px;
 }
 
 /* Karanlık Mod Stilleri */
