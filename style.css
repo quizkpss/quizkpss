@@ -1,164 +1,182 @@
+/* style.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
     background-color: #f4f4f4;
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-body.dark-mode {
-    background-color: #121212;
-    color: #f4f4f4;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Renk geçişini ekle */
 }
 
 .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.header {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 30px;
-    transition: background-color 0.3s ease;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 20px;
 }
 
-body.dark-mode .header {
-    background-color: #222;
-}
-
-.header h1 {
-    margin: 0;
-    transition: color 0.3s ease;
-}
-
-body.dark-mode .header h1 {
-    color: #fff;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
     cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease; /* Renk geçişini ekle */
+    color: #333; /* Standart renk */
 }
 
 .dark-mode-toggle i {
-    font-size: 1.5rem;
     transition: color 0.3s ease;
 }
 
-body.dark-mode .dark-mode-toggle i {
-    color: #f4f4f4;
+.dark-mode-toggle .fa-moon {
+    display: none;
+}
+
+.dark-mode-toggle.active .fa-sun {
+    display: none;
+}
+
+.dark-mode-toggle.active .fa-moon {
+    display: inline-block;
+}
+
+.category-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    white-space: nowrap; /* Menü öğelerinin satır kesmesini engeller */
+    /* Kaydırma çubuğunu gizle */
+    scrollbar-width: none; 
+    /* scroll-snap-type: x mandatory;  Döngü için gerekli (kaldırıldı) */
+    /* position: relative;  Döngü için gerekli (kaldırıldı) */
+}
+
+.category-slider::-webkit-scrollbar { 
+    display: none; 
+}
+
+.slide {
+    min-width: 100px;
+    padding: 10px 20px;
+    background-color: #fff; /* Menü renkleri beyaz */
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Gölge eklendi */
+    /* scroll-snap-align: start;  Döngü için gerekli (kaldırıldı) */
+}
+
+.slide.active {
+    background-color: #eee;
+}
+
+.card-view {
+    padding: 20px;
 }
 
 .card {
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden; 
-    width: 100%;
-    margin-bottom: 30px;
-    transition: box-shadow 0.3s ease, background-color 0.3s ease;
-}
-
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 5px;
     padding: 20px;
-    background: linear-gradient(to right, #007bff, #0056b3);
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; /* Başlangıçta gizli */
 }
 
-body.dark-mode .card-header {
-    background: linear-gradient(to right, #343a40, #454d55);
-}
-
-.card-header h2 {
-    margin: 0;
-    font-size: 1.4rem;
-    transition: color 0.3s ease;
-}
-
-.card-header i {
-    transition: transform 0.3s ease, color 0.3s ease;
+.card.active {
+    display: block; /* Seçilen kategori için aktif hale gelir */
 }
 
 .card-content {
-    padding: 20px 30px;
-    display: block;
-    max-height: 100px; 
-    overflow: hidden; 
-    transition: max-height 0.5s ease-in-out; 
-    font-size: 1.1rem;
-    line-height: 1.6;
+    display: none; /* Başlangıçta gizli */
 }
 
-.card-content.active { 
-    max-height: 1000px; 
+.card-content.active {
+    display: block; /* Seçilen kategori için aktif hale gelir */
 }
 
-
-body.dark-mode .card {
+/* Karanlık Mod Stilleri */
+body.dark-mode {
     background-color: #222;
+    color: #fff; /* Yazı rengi beyaza döner */
 }
 
-body.dark-mode .card-content {
-    color: #f4f4f4;
+.slide.active.dark-mode {
+    background-color: #333; /* Menü renkleri koyu gri */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); /* Daha belirgin gölge */
 }
 
-.footer {
+.card.dark-mode {
     background-color: #333;
+    color: #fff; /* Yazı rengi beyaza döner */
+}
+
+.dark-mode-toggle.active i {
+    color: #fff;
+}
+
+.dark-mode-toggle.active {
+    color: #000; /* Karanlık modda buton rengi siyah */
+}
+
+.slide.dark-mode {
+    background-color: #000; /* Karanlık modda menü öğeleri siyah */
+}
+
+/* Sosyal medya ikonları */
+.social-media {
+    background-color: #f4f4f4;
     padding: 20px;
     text-align: center;
 }
 
-.social-media a {
-    color: white;
+.social-media ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.social-media li {
+    display: inline-block;
     margin: 0 10px;
-    font-size: 1.5rem;
+}
+
+.social-media a {
+    color: #333;
+    font-size: 24px;
     transition: color 0.3s ease;
 }
 
 .social-media a:hover {
-    color: #007bff;
+    color: #ffc107; /* Sarı renk */
 }
 
-.navigation {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
+.social-media.dark-mode {
+    background-color: #222;
 }
 
-.navigation button {
-    background-color: transparent;
-    color: #007bff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.social-media.dark-mode a {
+    color: #fff;
 }
 
-.navigation button:disabled {
-    color: #ccc;
-    cursor: not-allowed;
+.social-media.dark-mode a:hover {
+    color: #ffc107; /* Sarı renk */
 }
 
-.navigation button:hover:not([disabled]) {
-    color: #0056b3;
+/* Karanlık modda ikon renkleri - Daha renkli ve modern */
+.dark-mode-toggle .fa-moon {
+    color: #d9d9d9; /* Açık gri ay */
 }
 
-.navigation button i {
-    margin-right: 5px;
+.dark-mode-toggle.active .fa-sun {
+    color: #f5c623; /* Canlı sarı güneş */
 }
