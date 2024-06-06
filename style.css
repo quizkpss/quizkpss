@@ -187,6 +187,7 @@ body.dark-mode {
 /* Quiz stilleri */
 .quiz {
     margin-top: 20px;
+    margin-bottom: 20px;
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
