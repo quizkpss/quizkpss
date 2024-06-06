@@ -12,8 +12,8 @@
         <div class="container">
             <h1 class="logo">Quiz KPSS-Güncel Bilgiler</h1>
             <button class="dark-mode-toggle">
-                <i class="fa-solid fa-moon"></i>
-                <i class="fa-solid fa-sun"></i>
+                <i class="fas fa-sun" style="color: #ffc107;"></i>
+                <i class="fas fa-moon" style="color: #ffc107;"></i>
             </button>
         </div>
     </header>
@@ -28,34 +28,99 @@
         </div>
 
         <div class="card-view">
-            <div class="card-content" data-category="teknoloji">
+            <div class="card-content active" data-category="teknoloji">
                 <h2>Yazarlar İçeriği</h2>
                 <p>Teknoloji kategorisiyle ilgili bilgiler burada gösterilecektir.</p>
+                <div class="quiz" id="teknoloji-quiz">
+                    <h3>Teknoloji Quiz</h3>
+                    <div class="question">
+                        <p>1. Soru:  İlk bilgisayar kim tarafından icat edildi?</p>
+                        <label class="answer" data-answer="A">
+                            <input type="radio" name="teknoloji-q1" value="A" onclick="checkAnswer('teknoloji', 'A')"> A) Charles Babbage
+                        </label>
+                        <label class="answer" data-answer="B">
+                            <input type="radio" name="teknoloji-q1" value="B" onclick="checkAnswer('teknoloji', 'B')"> B) Alan Turing
+                        </label>
+                    </div>
+                    <div class="result" id="teknoloji-result"></div>
+                </div>
             </div>
             <div class="card-content" data-category="moda">
                 <h2>Bilim ve Sanat İçeriği</h2>
                 <p>Moda kategorisiyle ilgili bilgiler burada gösterilecektir.</p>
+                <div class="quiz" id="moda-quiz">
+                    <h3>Bilim ve Sanat Quiz</h3>
+                    <div class="question">
+                        <p>1. Soru:  ...</p>
+                        <label class="answer" data-answer="A">
+                            <input type="radio" name="moda-q1" value="A" onclick="checkAnswer('moda', 'A')"> A) ...
+                        </label>
+                        <label class="answer" data-answer="B">
+                            <input type="radio" name="moda-q1" value="B" onclick="checkAnswer('moda', 'B')"> B) ...
+                        </label>
+                    </div>
+                    <div class="result" id="moda-result"></div>
+                </div>
             </div>
             <div class="card-content" data-category="yemek">
                 <h2>Spor İçeriği</h2>
                 <p>Yemek kategorisiyle ilgili bilgiler burada gösterilecektir.</p>
+                <div class="quiz" id="yemek-quiz">
+                    <h3>Spor Quiz</h3>
+                    <div class="question">
+                        <p>1. Soru:  ...</p>
+                        <label class="answer" data-answer="A">
+                            <input type="radio" name="yemek-q1" value="A" onclick="checkAnswer('yemek', 'A')"> A) ...
+                        </label>
+                        <label class="answer" data-answer="B">
+                            <input type="radio" name="yemek-q1" value="B" onclick="checkAnswer('yemek', 'B')"> B) ...
+                        </label>
+                    </div>
+                    <div class="result" id="yemek-result"></div>
+                </div>
             </div>
             <div class="card-content" data-category="seyahat">
                 <h2>Vefat Edenler</h2>
                 <p>Seyahat kategorisiyle ilgili bilgiler burada gösterilecektir.</p>
+                <div class="quiz" id="seyahat-quiz">
+                    <h3>Vefat Edenler Quiz</h3>
+                    <div class="question">
+                        <p>1. Soru:  ...</p>
+                        <label class="answer" data-answer="A">
+                            <input type="radio" name="seyahat-q1" value="A" onclick="checkAnswer('seyahat', 'A')"> A) ...
+                        </label>
+                        <label class="answer" data-answer="B">
+                            <input type="radio" name="seyahat-q1" value="B" onclick="checkAnswer('seyahat', 'B')"> B) ...
+                        </label>
+                    </div>
+                    <div class="result" id="seyahat-result"></div>
+                </div>
             </div>
             <div class="card-content" data-category="kitap">
                 <h2>Ödüller</h2>
                 <p>Kitap kategorisiyle ilgili bilgiler burada gösterilecektir.</p>
+                <div class="quiz" id="kitap-quiz">
+                    <h3>Ödüller Quiz</h3>
+                    <div class="question">
+                        <p>1. Soru:  ...</p>
+                        <label class="answer" data-answer="A">
+                            <input type="radio" name="kitap-q1" value="A" onclick="checkAnswer('kitap', 'A')"> A) ...
+                        </label>
+                        <label class="answer" data-answer="B">
+                            <input type="radio" name="kitap-q1" value="B" onclick="checkAnswer('kitap', 'B')"> B) ...
+                        </label>
+                    </div>
+                    <div class="result" id="kitap-result"></div>
+                </div>
             </div>
         </div>
     </main>
 
     <footer class="social-media">
         <ul>
-            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-tiktok"></i></a></li>
-            <li><a href="#" target="_blank"><i class="fab fa-telegram"></i></a></li>
+            <li><a href="https://www.instagram.com/quizkpss" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://tiktok.com/@quizkpss" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://t.me/quizkpssyeni" target="_blank"><i class="fab fa-telegram"></i></a></li>
         </ul>
     </footer>
 
