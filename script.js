@@ -41,3 +41,51 @@ window.addEventListener('load', () => {
         firstCardContent.classList.add('active');
     }
 });
+
+// Cevap kontrol fonksiyonu
+function checkAnswer(category, selectedAnswer) {
+    const quizId = `${category}-quiz`;
+    const resultId = `${category}-result`;
+    const correctAnswer = category === 'teknoloji' ? 'A' : 'B'; // Teknoloji için doğru cevap A, diğerleri için B
+
+    const resultElement = document.getElementById(resultId);
+
+    // Doğru cevap seçilmişse
+    if (selectedAnswer === correctAnswer) {
+        resultElement.innerHTML = 'Doğru Cevap!';
+        resultElement.style.color = 'green';
+        
+        // Tüm cevap seçeneklerini devre dışı bırak
+        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
+            input.disabled = true;
+        });
+
+        // Doğru seçilen cevabı yeşil yap
+        const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
+        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
+        correctAnswerLabel.style.color = '#fff';
+
+    } else { // Yanlış cevap seçilmişse
+        resultElement.innerHTML = 'Yanlış Cevap!';
+        resultElement.style.color = 'red';
+
+        // Tüm cevap seçeneklerini devre dışı bırak
+        document.querySelectorAll(`input[name="${category}-q1"]`).forEach(input => {
+            input.disabled = true;
+        });
+
+        // Yanlış seçilen cevabı kırmızı yap
+        const wrongAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${selectedAnswer}"] + label`);
+        wrongAnswerLabel.style.backgroundColor = '#f44336'; 
+        wrongAnswerLabel.style.color = '#fff';
+
+        // Doğru cevabı yeşil yap
+        const correctAnswerLabel = document.querySelector(`input[name="${category}-q1"][value="${correctAnswer}"] + label`);
+        correctAnswerLabel.style.backgroundColor = '#4CAF50'; 
+        correctAnswerLabel.style.color = '#fff';
+      
+      // Seçilen cevabı koyu yap
+const selectedLabel = document.querySelector(`input[name="${category}-q1"]:checked + label`);
+selectedLabel.style.fontWeight = 'bold';
+    }
+}
