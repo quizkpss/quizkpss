@@ -148,28 +148,6 @@ body.dark-mode {
     display: inline-block;
 }
 
-
-#goTopBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #fff;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  opacity: 0.7; 
-  transition: opacity 0.3s ease;
-}
-
-#goTopBtn:hover {
-  opacity: 1; 
-}
-
-#goTopBtn i {
-  font-size: 20px; 
-}
-
 .social-media li {
     display: inline-block;
     margin: 0 10px;
@@ -230,7 +208,7 @@ body.dark-mode {
 .quiz .question p {
     font-size: 16px;
     margin-bottom: 10px;
-      text-align: left 
+    text-align: interal; 
 }
 
 .answer {
@@ -266,6 +244,27 @@ body.dark-mode {
     font-weight: bold;
     display: flex;
     justify-content: space-around;
+}
+
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7; 
+  transition: opacity 0.3s ease;
+}
+
+#goTopBtn:hover {
+  opacity: 1; 
+}
+
+#goTopBtn i {
+  font-size: 20px; 
 }
 
 /* Karanlık modda soru çerçevesi */
