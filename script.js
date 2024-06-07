@@ -26,11 +26,24 @@ slides.forEach(slide => {
 });
 
 // Karanlık mod işlevi
-darkModeToggle.addEventListener('click', () => {
+function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     darkModeToggle.classList.toggle('active'); // Karanlık mod ikonunu değiştir
     slides.forEach(slide => slide.classList.toggle('dark-mode')); // Menü öğeleri için de dark-mode sınıfını ekle veya kaldır
-});
+
+    // Seçilen modu localStorage'a kaydet
+    localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+}
+
+// Sayfa yüklendiğinde kaydedilen modu uygula
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    toggleDarkMode(); 
+}
+
+// Karanlık mod butonuna olay dinleyicisi ekle
+darkModeToggle.addEventListener('click', toggleDarkMode);
+
 
 // Sayfa yüklendiğinde ilk kartı göster
 window.addEventListener('load', () => {
@@ -66,9 +79,9 @@ function scrollFunction() {
 const correctAnswers = {
     teknoloji: 'A',
     moda: 'A',
-    sanat: 'B',
     yemek: 'A',
-     seyahat: 'B',
+    seyahat: 'B',
+    kitap: 'B',
     // Diğer kategoriler ve doğru cevapları ekleyin
 };
 
