@@ -1,258 +1,316 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kpss Güncel Bilgiler</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header class="sticky-header">
-        <div class="container">
-            <h1 class="logo">Quiz KPSS-Güncel Bilgiler</h1>
-            <button class="dark-mode-toggle">
-                <i class="fas fa-sun" style="color: #ffc107;"></i>
-                <i class="fas fa-moon" style="color: #ffc107;"></i>
-            </button>
-        </div>
-    </header>
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
 
-    <main>
-        <div class="category-slider">
-            <div class="slide active" data-category="teknoloji"><i class="fas fa-feather-alt"></i> Yazarlar</div>
-            <div class="slide" data-category="moda"><i class="fas fa-flask"></i> Bilim ve Sanat</div>
-            <div class="slide" data-category="yemek"><i class="fas fa-futbol"></i> Spor</div>
-            <div class="slide" data-category="seyahat"><i class="fas fa-plane-departure"></i> Vefat Edenler</div>
-            <div class="slide" data-category="kitap"><i class="fas fa-award"></i> Ödüller</div>
-            <div class="slide" data-category="kültür"><i class="fas fa-landmark"></i> Kültür</div>
-            <div class="slide" data-category="ilkler"><i class="fa-regular fa-newspaper"></i> İlkler</div>
-        </div>
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
 
-        <div class="card-view">
-            <div class="card-content active" data-category="teknoloji">
-                <div class="font-controls">
-                    <button id="increase-font">A+</button>
-                    <button id="decrease-font">A-</button>
-                </div>
-                <div class="quiz" id="teknoloji-quiz">
-                    <h3>Yazarlar Günün Sorusu</h3>
-                    <div class="question">
-                        <p>İsveç Akademisi, '2006 Nobel Edebiyat Ödülü, kentinin melankolik ruhunun izlerini sürerken kültürlerin birbirleriyle çatışması ve örülmesi için yeni simgeler bulan hangi yazara verilmiştir.(Nobel ödüllerinin en prestijlisi olan Edebiyat Ödülü'nü alan ilk Türk oldu.)</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="teknoloji-q1" value="A" onclick="checkAnswer('teknoloji', 'A')"> A) Orhan Pamuk
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="teknoloji-q1" value="B" onclick="checkAnswer('teknoloji', 'B')"> B) Atilla İlhan
-                        </label>
-                    </div>
-                    <div class="result" id="teknoloji-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/iau03ff.jpg" alt="Mobil uyumlu görsel">
-                <h2>YAZARLAR İÇERİK</h2>
-                <p>
-                  
-                    <ul style="text-align: left;">
-                      
-                         <p>&nbsp;➤&nbsp;&nbsp;<strong>Orhan Pamuk</strong></p><ul><li><strong>Eserler</strong>: "Benim Adım Kırmızı", "Kar", "Masumiyet Müzesi"</li><li><strong>Ödüller</strong>: Nobel Edebiyat Ödülü (2006), IMPAC Dublin Edebiyat Ödülü (Benim Adım Kırmızı)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Yaşar Kemal</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "İnce Memed", "Yer Demir Gök Bakır", "Binboğalar Efsanesi"</li><li><strong>Ödüller</strong>: Legion d’Honneur, Friedenspreis des Deutschen Buchhandels (Alman Yayıncılar Birliği Barış Ödülü)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Nazım Hikmet</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Kuvâyi Milliye", "Memleketimden İnsan Manzaraları", "Şeyh Bedreddin Destanı"</li><li><strong>Ödüller</strong>: Uluslararası Barış Ödülü (1950), Lotus Edebiyat Ödülü (1975)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Ahmet Hamdi Tanpınar</strong></div><div><br /></div><ul><li><strong>Eserler</strong>: "Huzur", "Saatleri Ayarlama Enstitüsü", "Beş Şehir"</li><li><strong>Ödüller</strong>: TDK Edebiyat Ödülü (1944 - Beş Şehir)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Halide Edib Adıvar</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Sinekli Bakkal", "Ateşten Gömlek", "Vurun Kahpeye"</li><li><strong>Ödüller</strong>: - (Ödülleri bulunmamaktadır, ancak Türk edebiyatına katkıları büyüktür)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Peyami Safa</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Dokuzuncu Hariciye Koğuşu", "Fatih-Harbiye", "Yalnızız"</li><li><strong>Ödüller</strong>: - (Ödülleri bulunmamaktadır, ancak Türk edebiyatına katkıları büyüktür)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Cemal Süreya</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Üvercinka", "Göçebe", "Sevda Sözleri"</li><li><strong>Ödüller</strong>: TDK Şiir Ödülü (1959)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Attilâ İlhan</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Aysel Git Başımdan", "Ben Sana Mecburum", "Aynanın İçindekiler"</li><li><strong>Ödüller</strong>: TDK Şiir Ödülü (1974), Yunus Nadi Roman Ödülü (1974)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Oğuz Atay</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Tutunamayanlar", "Tehlikeli Oyunlar", "Korkuyu Beklerken"</li><li><strong>Ödüller</strong>: TRT Sanat Ödülleri Yarışması Başarı Ödülü (1970)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Aziz Nesin</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Zübük", "Şimdiki Çocuklar Harika", "Tatlı Betüş"</li><li><strong>Ödüller</strong>: Uluslararası Gülmece Ödülü (1956), Lotus Edebiyat Ödülü (1977)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Sezai Karakoç</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Mona Roza", "Körfez", "Leyla ile Mecnun"</li><li><strong>Ödüller</strong>: Türkiye Yazarlar Birliği Üstün Hizmet Ödülü (1982)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Tezer Özlü</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Yaşamın Ucuna Yolculuk", "Çocukluğun Soğuk Geceleri", "Kalanlar"</li><li><strong>Ödüller</strong>: Marburg Kenti Avrupa Edebiyat Ödülü (1983)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>Ferit Edgü</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "O/Hakkari'de Bir Mevsim", "Kimse", "İşte Deniz, Maria"</li><li><strong>Ödüller</strong>: Sait Faik Hikâye Armağanı (1979)</li></ul><div><br /></div><div>➤&nbsp; &nbsp;<strong>İhsan Oktay Anar</strong></div><div><strong><br /></strong></div><ul><li><strong>Eserler</strong>: "Puslu Kıtalar Atlası", "Efrasiyab'ın Hikâyeleri", "Amat"</li><li><strong>Ödüller</strong>: Erdal Öz Edebiyat Ödülü (2009)</li></ul><div><br /></div><div><br /></div><div><br /></div>
-                          
-                    </ul>
-                    <div><br /></div>
-                </p>
-            </div>
+.dark-mode-toggle {
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease;
+    color: #333;
+}
 
-            <div class="card-content" data-category="moda">
-                <div class="quiz" id="moda-quiz">
-                    <h3>Bilim ve Sanat Günün Sorusu</h3>
-                    <div class="question">
-                        <p>2024 Akademi Oscar Ödülleri'nde  'En İyi Kısa Film' dalında aday adayı olma şansını yakalayan film aşağıdakilerden hangisidir?</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="moda-q1" value="A" onclick="checkAnswer('moda', 'A')"> A) Rutubet
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="moda-q1" value="B" onclick="checkAnswer('moda', 'B')"> B) Kutlama
-                        </label>
-                    </div>
-                    <div class="result" id="moda-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/h4jf3i4.jpg" alt="Mobil uyumlu görsel">
-                <h2>BİLİM VE SANAT İÇERİĞİ </h2>
-                <p>
-                    <ul style="text-align: left;">
-    <p>&nbsp;➤&nbsp;&nbsp;<strong>Bilim ve Teknoloji:</strong></p><ul data-sourcepos="7:1-8:27"><li data-sourcepos="7:1-7:61"><strong>1450:</strong> Johannes Gutenberg tarafından matbaa icat edildi.</li><li data-sourcepos="8:1-8:27"><strong>1543:</strong> Kopernik, Güneş Sistemi'nin merkezinde Güneş'in olduğunu savundu.</li><li data-sourcepos="9:1-9:60"><strong>1608:</strong> Hans Lippershey tarafından teleskop icat edildi.</li><li data-sourcepos="10:1-10:52"><strong>1614:</strong> William Harvey, kan dolaşımını keşfetti.</li><li data-sourcepos="11:1-11:66"><strong>1712:</strong> Thomas Newcomen tarafından buhar makinesi icat edildi.</li><li data-sourcepos="12:1-12:56"><strong>1800:</strong> Alessandro Volta tarafından pil icat edildi.</li><li data-sourcepos="13:1-13:65"><strong>1876:</strong> Alexander Graham Bell tarafından telefon icat edildi.</li><li data-sourcepos="14:1-14:65"><strong>1879:</strong> Thomas Edison tarafından elektrik ampulü icat edildi.</li><li data-sourcepos="15:1-15:65"><strong>1895:</strong> Wilhelm Conrad Röntgen tarafından X-ışını keşfedildi.</li><li data-sourcepos="16:1-16:57"><strong>1903:</strong> Wright Kardeşler tarafından uçak icat edildi.</li><li data-sourcepos="17:1-17:6"><strong>1946:</strong> J. Presper Eckert ve John Mauchly tarafından ENIAC (ilk elektronik bilgisayar) icat edildi.</li><li data-sourcepos="18:1-18:85"><strong>1957:</strong> Sovyetler Birliği tarafından Sputnik 1 (ilk yapay uydu) uzaya fırlatıldı.</li><li data-sourcepos="19:1-19:76"><strong>1961:</strong> Yuri Gagarin tarafından ilk insanlı uzay uçuşu gerçekleştirildi.</li><li data-sourcepos="20:1-20:79"><strong>1969:</strong> Neil Armstrong ve Buzz Aldrin tarafından Ay'a ilk kez ayak basıldı.</li><li data-sourcepos="21:1-21:63"><strong>1977:</strong> Apple II (ilk kişisel bilgisayar) piyasaya sürüldü.</li><li data-sourcepos="22:1-22:71"><strong>1984:</strong> Motorola DynaTAC 8000X (ilk cep telefonu) piyasaya sürüldü.</li><li data-sourcepos="23:1-23:72"><strong>1990:</strong> Tim Berners-Lee tarafından World Wide Web (WWW) icat edildi.</li><li data-sourcepos="24:1-24:30"><strong>2001:</strong> Wikipedia kuruldu.</li><li data-sourcepos="25:1-25:42"><strong>2007:</strong> Apple iPhone piyasaya sürüldü.</li><li data-sourcepos="26:1-26:69"><strong>2012:</strong> CERN tarafından Büyük Hadron Çarpıştırıcısı (LHC) açıldı.</li><li data-sourcepos="27:1-27:128"><strong>2013:</strong> Edward Snowden tarafından Ulusal Güvenlik Ajansı'nın (NSA) küresel gözetim programları hakkında bilgiler sızdırıldı.</li><li data-sourcepos="28:1-28:52"><strong>2015:</strong> New Horizons uzay aracı Plüton'a ulaştı.</li><li data-sourcepos="29:1-29:113"><strong>2016:</strong> AlphaGo (Google tarafından geliştirilen bir yapay zeka programı) dünya şampiyonu Go oyuncusunu yendi.</li><li data-sourcepos="30:1-30:49"><strong>2018:</strong> James Webb Uzay Teleskobu fırlatıldı.</li><li data-sourcepos="31:1-32:0"><strong>2020:</strong> COVID-19 pandemisi dünya genelinde karantinalara ve kısıtlamalara yol açtı.</li></ul>
-                    </ul>
-                    <div><br /></div>
-                </p>
-            </div>
+.dark-mode-toggle i {
+    transition: color 0.3s ease;
+}
 
-            <div class="card-content" data-category="yemek">
-                <div class="quiz" id="yemek-quiz">
-                    <h3>Spor Günün Sorusu</h3>
-                    <div class="question">
-                        <p>Avustralya'da düzenlenen J300 Traralgon Turnuvası'nda ITF gençler 23 numarası Rus Mirra Andreeva'yı 2-6, 6-3 ve 6-4'lük setlerle 2-1 mağlup ederek tenis turnuvasının şampiyonu olan kimdir?
-</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="yemek-q1" value="A" onclick="checkAnswer('yemek', 'A')"> A) Melisa Ercan
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="yemek-q1" value="B" onclick="checkAnswer('yemek', 'B')"> B) İpek Soylu
-                        </label>
-                    </div>
-                    <div class="result" id="yemek-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/khiprhs.jpg" alt="Mobil uyumlu görsel">
-                <h2>SPOR İÇERİKLERİ</h2>
-                <p>
-                    <ul style="text-align: left;">
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
+.dark-mode-toggle .fa-moon {
+    display: none;
+}
+
+.dark-mode-toggle.active .fa-sun {
+    display: none;
+}
+
+.dark-mode-toggle.active .fa-moon {
+    display: inline-block;
+}
+
+.category-slider {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    white-space: nowrap; 
+    scrollbar-width: none; 
+}
+
+img {
+  max-width: 100%; /* Görselin en fazla kapsayıcısının %100'ü kadar geniş olmasını sağlar */
+  height: auto;      /* Yüksekliği otomatik olarak ayarla */
+}
 
 
-                    </ul>
-                    <div><br /></div>
-                    <ul style="text-align: left;">
-                    
-                    </ul>
-                    <div><br /></div>
-                </p>
-            </div>
+.category-slider::-webkit-scrollbar { 
+    display: none; 
+}
 
-            <div class="card-content" data-category="seyahat">
-                <div class="quiz" id="seyahat-quiz">
-                    <h3>Vefat Edenler Günün Sorusu</h3>
-                    <div class="question">
-                        <p>Filme çekilmiş 395 senaryosuyla Guinness Rekorlar Kitabı'na giren, "Vesikalı Yarim", "Ağaçlar Ayakta Ölür", "Ah Güzel İstanbul", "Ah Müjgan Ah", "Dila Hanım", "Tatar Ramazan", "Tatlı Nigar", "Doktor Civanım" gibi pek çok kült filmin senaryosunu kaleme alan 92 yaşında yaşamını yitiren usta senarist kimdir?
-</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="seyahat-q1" value="A" onclick="checkAnswer('seyahat', 'A')"> A) Korhan Günay
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="seyahat-q1" value="B" onclick="checkAnswer('seyahat', 'B')"> B) Safa Önal
-                        </label>
-                    </div>
-                    <div class="result" id="seyahat-result"></div>
-                </div>
-                <img src="https://r.resimlink.com/WNCuxlYFS.jpg" alt="Mobil uyumlu görsel">
-                <h2>VEFAT EDENLER İÇERİĞİ</h2>
-                <p>
-        
-                      
-                      
+.slide {
+    min-width: 125px; /* Slide genişliği */
+    padding: 75px 75px; /* Padding ayarı */
+    background-color: #fff; 
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
 
-<p><span style="text-align: justify;">➤ <b>Köksal Engür</b>, Afife Tiyatro Ödülleri'nde 1999'da “Yılın En İyi Erkek Oyuncusu”, 2002'de ise “Yılın En Başarılı Müzikal ya da Komedi Erkek Oyuncusu” seçilen sanatçı, 2005'te 16. Ankara Film Festivali'nde “Yardımcı Erkek Oyuncu” ödülünü almıştır. Hollywood yıldızları Robert de Niro, Al Pacino, Dustin Hoffman ve Robin Williams'ın yanı sıra Susam Sokağı'ndaki “Büdü” karakteriyle Red Kit çizgi filminde "Red Kit"i seslendirmiştir. 2023 yılında Ses Sanatçı vefat etmiştir.</span></p>
-<p><span style="text-align: justify;">➤ Bay Sinema lakaplı yönetmen, senarist ve yapımcı <b>Türker İnanoğlu</b> 87 yaşında hayata veda etti</span></p>
-<p><span style="text-align: justify;">➤ 'Taçsız Kral', 'Yılan Hikayesi' ve 'İstanbul Kırmızısı' gibi yapımlarda yer alan devlet tiyatrocusu usta oyuncu <b>Ayten Gökçer</b>, yaşama veda etti.</span></p>
-<p><span style="text-align: justify;">➤ Tunus'ta sürgünde olan Yaser Arafat tarafından "Özgürlük Madalyası" ile onurlandırılan,  "Bize Yön Veren Metinler" çalışmasıyla İslam dünyasına yön veren "2014 yılında edebiyat dalında Cumhurbaşkanlığı Kültür ve Sanat Büyük Ödülü başta olmak üzere, pek çok ödülle onurlandırılan <b>Alev Alatlı </b>hayatını kaybetti.</span></p>
-<p><span style="text-align: justify;">➤ “İstanbul Bir Masaldı”, “En Güzel Aşk Hikayemiz”, “Bir Şehre Gidememek”, “Lunapark Kapandı” gibi romanların yazarı, İstanbul aşığı <b>Mario Levni</b> (2024), 66 yaşında hayatını kaybetti.</span></p>
-<p><span style="text-align: justify;">➤ Yunus Emre'nin şiirlerini Almanca, Fransızca ve İngilizce olarak şiirli-şarkılı okuyarak Yunus Emre'yi dünyada tanıtmıştır. Algan, bu çalışmalarıyla 1973 yılında Uluslararası Yunus Emre Şenliği'nde "Yunus Emre Dostluk Ödülü"ne layık görülen <b>Ayla Algan</b>  86 yaşında hayatını kaybetti.</span></p>
-<p><span style="text-align: justify;">➤ Amerikan Havacılık ve Uzay Dairesinin (NASA) yörüngeye ulaşmayı başaran ilk insanlı uzay misyonu olan Apollo 7’nin hayatta kalan son astronotu <b>Walter Cunningham</b>, 3 Ocak'ta 90 yaşında yaşamını yitirdi.</span></p>
-<p><span style="text-align: justify;">➤ "Bizimkiler" ve "Perihan Abla" dizilerine imza atan usta yönetmen <b>Yalçın  Yelence</b>, tedavi gördüğü hastanede 20 Ocak'ta 69 yaşında hayatını kaybetti.</span></p>
-<p><span style="text-align: justify;">➤ "Sarı Sabahlık", "Ağlayan Gözlerim" türküleriyle özdeşleşen <b>Nuri Sesigüzel</b> 86 yaşında hayata veda etti.</span></p>
-<p><span style="text-align: justify;">➤ Türkiye'nin ilk piyanist şantörlerinden, caz sanatçısı <b>Bozkurt İlham Gencer</b>, 24 Mayıs'ta 98 yaşında hayatını kaybetti.</span></p>
-<p><span style="text-align: justify;">➤ "Vesikalı Yarim", "Ağaçlar Ayakta Ölür", "Ah Güzel İstanbul", "Ah Müjgan Ah", "Dila Hanım", "Tatar Ramazan", "Tatlı Nigar", "Doktor Civanım" gibi pek çok kült filmin senaryosunu kaleme alan usta senarist <b>Safa Önal</b>, 30 Temmuz'da yaşamını yitirdi. Filme çekilmiş 395 senaryosuyla Guinness Rekorlar Kitabı'na giren usta senarist, 92 yaşındaydı.</span></p>
-<p><span style="text-align: justify;">➤ "İlla Ki", "Deli Kadın", "Tek Başına", "Öyle Bir Geçer Zaman Ki", "Arapsaçı", "Fesupanallah", "Şaşkın", "Sevince" ve "Yalnızlar Rıhtımı" gibi besteleriyle rock müzik dünyasında unutulmaz bir iz bırakan  <b>Erkin Koray</b> 82 yaşında hayatını kaybetti.</span></p><p><span style="text-align: justify;"><br /></span></p>
+.slide.active {
+    background-color: #eee;
+}
 
+.card-view {
+    padding: 20px;
+}
 
+.card {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none; 
+}
 
+.card.active {
+    display: block; 
+}
 
+.card-content {
+    display: none; 
+}
 
+.card-content.active {
+    display: block; 
+    padding: 20px;
+}
 
-                    </ul>
-                    <div><br /></div>
-                </p>
-            </div>
+/* Karanlık Mod Stilleri */
+body.dark-mode {
+    background-color: #222;
+    color: #fff;
+}
 
-            <div class="card-content" data-category="kitap">
-                <div class="quiz" id="kitap-quiz">
-                    <h3>Ödüller Günün Sorusu</h3>
-                    <div class="question">
-                        <p>2024 Grammy Ödülleri'nde Yılın Albümü ödülünü  dördüncü kez kazanarak tarihe geçen şarkıcı kimdir?</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="kitap-q1" value="A" onclick="checkAnswer('kitap', 'A')"> A) Billie Eilish
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="kitap-q1" value="B" onclick="checkAnswer('kitap', 'B')"> B) Taylor Swift
-                        </label>
-                    </div>
-                    <div class="result" id="kitap-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/pwltf4t.jpg" alt="Mobil uyumlu görsel">
-                <h2>ÖDÜLLER İÇERİĞİ</h2>
-                <p>
-         <p>&nbsp; ➤&nbsp; <b>NOBEL FİZİK ÖDÜLÜ</b></p><ol><li><strong>Albert Einstein</strong> (1921) - "Fotoelektrik etki yasasını keşfi"</li><li><strong>Niels Bohr</strong> (1922) - "Atom yapısı ve atom ışınımı üzerine araştırmaları için"</li><li><strong>Richard Feynman, Julian Schwinger, Sin-Itiro Tomonaga</strong> (1965) - "Kuantum elektrodinamiği teorisi"</li><li><strong>Peter Higgs, François Englert</strong> (2013) - "Higgs bozonunun teorik keşfi"</li><li><strong>Alain Aspect, John F. Clauser, Anton Zeilinger</strong> (2022) - "Kuantum bilişim üzerine deneysel araştırmalar"</li></ol><p>&nbsp;➤&nbsp;<b> NOBEL KİMYA ÖDÜLÜ</b></p><ol><li><strong>Marie Curie</strong> (1911) - "Radyum ve polonyumun keşfi"</li><li><strong>Linus Pauling</strong> (1954) - "Kimyasal bağlar üzerine araştırmaları"</li><li><strong>Ahmed Zewail</strong> (1999) - "Femtokimya alanındaki çalışmaları"</li><li><strong>Emmanuelle Charpentier, Jennifer Doudna</strong> (2020) - "CRISPR-Cas9 genom düzenleme metodu"</li><li><strong>Carolyn Bertozzi, Morten Meldal, K. Barry Sharpless</strong> (2022) - "Click kimya ve biyorthogonal kimya alanındaki çalışmaları"</li></ol><p>&nbsp;➤&nbsp; <b>NOBEL FİZYOLOJİ ÖDÜLÜ</b></p><ol><li><strong>Alexander Fleming, Ernst Boris Chain, Howard Florey</strong> (1945) - "Penisilin ve tedavi edici etkilerinin keşfi"</li><li><strong>James Watson, Francis Crick, Maurice Wilkins</strong> (1962) - "DNA'nın moleküler yapısının keşfi"</li><li><strong>Elizabeth Blackburn, Carol Greider, Jack Szostak</strong> (2009) - "Telomerler ve telomeraz enziminin keşfi"</li><li><strong>Harvey J. Alter, Michael Houghton, Charles M. Rice</strong> (2020) - "Hepatit C virüsünün keşfi"</li><li><strong>Svante Pääbo</strong> (2022) - "İnsanın evrimine dair genomik keşifler"</li></ol><p>&nbsp;➤&nbsp; <b>NOBEL BARIŞ ÖDÜLÜ</b></p><ol><li><strong>Martin Luther King Jr.</strong> (1964) - "Irk ayrımcılığına karşı barışçıl mücadele"</li><li><strong>Mother Teresa</strong> (1979) - "İnsani yardımlar ve yardım çalışmaları"</li><li><strong>Malala Yousafzai, Kailash Satyarthi</strong> (2014) - "Çocuk hakları için mücadele"</li><li><strong>World Food Programme (WFP)</strong> (2020) - "Açlıkla mücadele ve barışçıl koşullarda gıda güvenliği sağlama"</li><li><strong>Ales Bialiatski, Memorial, Center for Civil Liberties</strong> (2022) - "İnsan hakları savunuculuğu"</li></ol><p>&nbsp;➤&nbsp;<b> NOBEL EDEBİYAT ÖDÜLÜ</b></p><ol><li><strong>Louise Glück</strong> (2020) - "The Wild Iris"</li><li><strong>Abdulrazak Gurnah</strong> (2021) - "Paradise"</li><li><strong>Annie Ernaux</strong> (2022) - "The Years"</li><li><strong>Jon Fosse</strong> (2023) - "Septology"</li></ol><p>&nbsp;➤&nbsp; <b>NOBEL EKONOMİ ÖDÜLÜ</b> (Resmi olarak "Sveriges Riksbank Ödülü" olarak bilinir)</p><ol><li><strong>Paul Samuelson</strong> (1970) - "Modern ekonomik bilime katkıları"</li><li><strong>Milton Friedman</strong> (1976) - "Para teorisi ve tarihçesi üzerine çalışmaları"</li><li><strong>Amartya Sen</strong> (1998) - "Refah ekonomisine katkıları"</li><li><strong>Richard Thaler</strong> (2017) - "Davranışsal ekonomi alanındaki çalışmaları"</li><li><strong>David Card, Joshua D. Angrist, Guido W. Imbens</strong> (2021) - "Emek ekonomisi ve doğal deneyler üzerine çalışmaları"</li></ol><p>&nbsp;➤&nbsp; <b>PULİTİZER ÖDÜLÜ (Kurgu)</b></p><ol><li><strong>Colson Whitehead</strong> (2020) - "The Nickel Boys"</li><li><strong>Louise Erdrich</strong> (2021) - "The Night Watchman"</li><li><strong>Joshua Cohen</strong> (2022) - "The Netanyahus"</li><li><strong>Barbara Kingsolver</strong> (2023) - "Demon Copperhead"</li><li><strong>Hernan Diaz</strong> (2023) - "Trust"</li></ol><p>&nbsp;➤&nbsp; <b>BALLON d'Or</b></p><ol><li><strong>Robert Lewandowski</strong> (2020) - Bayern Munich</li><li><strong>Lionel Messi</strong> (2021) - Paris Saint-Germain</li><li><strong>Karim Benzema</strong> (2022) - Real Madrid</li><li><strong>Lionel Messi</strong> (2023) - Inter Miami</li></ol><p>&nbsp;➤&nbsp; <b>FIFA DÜNYA KUPASI ALTIN TOP ÖDÜLÜ</b></p><ol><li><strong>Diego Maradona</strong>&nbsp;(1986) - Arjantin</li><li><strong>Romário</strong>&nbsp;(1994) - Brezilya</li><li><strong>Zinedine Zidane</strong>&nbsp;(2006) - Fransa</li><li><strong>Lionel Messi</strong>&nbsp;(2014) - Arjantin</li><li><strong>Luka Modrić</strong>&nbsp;(2018) - Hırvatistan</li><li><strong>Lionel Messi</strong>&nbsp;(2022) - Arjantin</li></ol><p><br /></p><p><br /></p>
-              
-              
-            </div>
+.slide.active.dark-mode {
+    background-color: #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+}
 
-            <div class="card-content" data-category="kültür">
-                <div class="quiz" id="kultur-quiz">
-                    <h3>Kültür Günün Sorusu</h3>
-                    <div class="question">
-                        <p>1. Soru: ...</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="kultur-q1" value="A" onclick="checkAnswer('kultur', 'A')"> A) ...
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="kultur-q1" value="B" onclick="checkAnswer('kultur', 'B')"> B) ...
-                        </label>
-                    </div>
-                    <div class="result" id="kultur-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/blr8a0z.png" alt="Mobil uyumlu görsel">
-                <h2>KÜLTÜR İÇERİĞİ</h2>
-                <p>
-                    <ul style="text-align: left;">
+.card.dark-mode {
+    background-color: #333;
+    color: #fff; 
+}
 
+.dark-mode-toggle.active i {
+    color: #fff;
+}
 
-<p style="text-align: left;">➤&nbsp;<b>ADANA</b></p><p></p><ul style="text-align: left;"><li><strong>Taş Köprü</strong>: Roma dönemine ait, dünyadaki en eski ve hala kullanılan köprülerden biridir.</li></ul><ul style="text-align: left;"><li><strong>Adana Ulu Camii</strong>: Ramazanoğulları döneminden kalma tarihi camidir.</li></ul><ul><li><strong>Varda Köprüsü</strong>: Almanlar tarafından inşa edilmiş tarihi bir tren köprüsüdür.</li></ul><br /><span style="font-size: small;">➤ <b>ADIYAMAN (NEMRUT DAĞI)</b></span><ul><li><strong>Nemrut Dağı</strong>: Kommagene Krallığı'na ait antik tapınak ve devasa heykelleriyle ünlüdür. Gün batımı ve doğumunda manzarasıyla ziyaretçileri büyüler.</li></ul><br /><span style="font-size: small;">➤ <b>ANTALYA</b></span><ul><li><strong>Antalya Kaleiçi</strong>: Tarihi ve atmosferik bir liman kasabası olan Kaleiçi, Antalya'nın merkezinde yer alır. Antik limanın kalıntıları, dar sokakları, geleneksel Türk evleri ve Osmanlı döneminden kalma taş yapılarıyla ünlüdür.</li></ul><ul><li><strong>Antik Myra Kenti</strong>: Antalya'nın Demre ilçesinde bulunan Myra Antik Kenti, Likya Uygarlığı'na ait önemli kalıntıları içerir. En ünlü özelliklerinden biri, kaya mezarlarıdır.</li></ul><ul><li><strong>Aspendos Antik Tiyatrosu</strong>: Antalya'nın Serik ilçesinde bulunan Aspendos Antik Tiyatrosu, Roma dönemine ait en iyi korunmuş antik tiyatrolardan biridir. Muhteşem bir akustiği vardır.</li></ul><ul><li><strong>Side Antik Kenti</strong>: Antalya'nın Manavgat ilçesinde bulunan Side, antik bir liman şehridir. Antik tiyatrosu, agora, tapınakları ve limanıyla bilinir.</li></ul><br /><span style="font-size: small;">➤ <b>BURSA</b></span><ul><li><strong>Uludağ</strong>: Türkiye'nin önemli kayak merkezlerinden biridir.</li></ul><ul><li><strong>Bursa Ulu Camii</strong>: Osmanlı dönemine ait büyük cami.</li></ul><ul><li><strong>Cumalıkızık Köyü</strong>: Osmanlı köy mimarisinin güzel örneklerinden biri.</li></ul><br /><span style="font-size: small;">➤ <b>ÇANAKKALE (TROYA ANTİK KENTİ)</b></span><ul><li><strong>Troya Antik Kenti</strong>: Homeros'un İlyada destanında geçen efsanelere konu olan Troya, arkeolojik kazılarla gün yüzüne çıkarılmıştır.</li></ul><ul><li style="box-sizing: border-box;"><b>Gökçeada:</b> Eski adı "İmroz" olan Gökçeada, Çanakkale'nin bir ilçesi ve Türkiye'nin en büyük adasıdır. 2011'de sakin şehir ağına dahil edildi.</li></ul><br /><span style="font-size: small;">➤ <b>ÇORUM (HATTUŞAŞ ANTİK KENTİ)</b></span><ul><li><strong>Hattuşaş Antik Kenti</strong>: Hitit İmparatorluğu'nun başkenti olan Hattuşaş, büyük tapınakları, sarayları ve sur duvarlarıyla bilinir.</li></ul><br /><span style="font-size: small;">➤ <b>DENİZLİ (PAMUKKALE VE HIERAPOLIS)</b></span><ul><li><strong>Pamukkale</strong>: Pamukkale, beyaz traverten terasları ve termal sularıyla ünlüdür. UNESCO Dünya Mirası Listesi'nde yer alır.</li></ul><ul><li><strong>Hierapolis Antik Kenti</strong>: Pamukkale'nin yanında bulunan Hierapolis, antik Roma dönemine ait kalıntılarıyla ziyaretçileri cezbetmektedir.</li></ul><br /><span style="font-size: small;">➤ <b>ESKİŞEHİR</b></span><ul><li><strong>Odunpazarı Evleri</strong>: Osmanlı dönemine ait tarihi evler ve sokaklar.</li></ul><ul><li><strong>Porsuk Çayı</strong>: Şehir merkezinden geçen nehir, gondol gezileri ile ünlüdür.</li></ul><ul><li><strong>Eskişehir Balmumu Müzesi</strong>: Türkiye'nin ünlü isimlerinin balmumu heykelleri.</li></ul><br /><span style="font-size: small;">➤ <b>GAZİANTEP</b></span><ul><li><strong>Zeugma Antik Kenti</strong>: Roma dönemine ait zengin mozaikleriyle ünlüdür.</li></ul><ul><li><strong>Gaziantep Kalesi</strong>: Roma dönemine kadar uzanan tarihiyle dikkat çeker.</li></ul><ul><li><strong>Bakırcılar Çarşısı</strong>: Geleneksel el sanatlarını görebileceğiniz tarihi çarşı.</li></ul><br /><span style="font-size: small;">➤ <b>HATAY</b></span><ul><li><strong>Antakya Arkeoloji Müzesi</strong>: Dünyanın en büyük mozaik koleksiyonlarından birine sahiptir.</li></ul><ul><li><strong>Saint Pierre Kilisesi</strong>: Hristiyanlığın ilk kiliselerinden biri olarak bilinir.</li></ul><ul><li><strong>Habibi Neccar Camii</strong>: Antakya'nın en eski camilerinden biridir.</li></ul><br /><span style="font-size: small;">➤ <b>İSTANBUL</b></span><ul><li><strong>Ayasofya</strong>: İstanbul'un sembol yapılarından biri olan Ayasofya, Bizans ve Osmanlı dönemlerinin izlerini taşır.</li></ul><ul><li><strong>Topkapı Sarayı</strong>: Osmanlı İmparatorluğu'nun merkezi olan Topkapı Sarayı, zengin koleksiyonları ve muhteşem mimarisiyle bilinir.</li></ul><ul><li><strong>Sultanahmet Camii (Blaue Moschee)</strong>: İstanbul'un simgelerinden biri olan Sultanahmet Camii, eşsiz mavi çinileriyle dikkat çeker.</li></ul><ul><li><strong>Yerebatan Sarnıcı</strong>: İstanbul'un tarihi sarnıcı, muhteşem sütunları ve atmosferiyle ziyaretçileri büyüler.</li></ul><br /><span style="font-size: small;">➤<b> İZMİR</b></span><ul><li><strong>Şirince</strong>: Tarihi Rum köyü.</li></ul><ul><li><strong>İzmir Saat Kulesi</strong>: Şehir merkezinde yer alan simgesel yapıdır.</li></ul><ul><li><strong>Artemis Tapınağı</strong>: Antik Efes kentinde bulunan Artemis Tapınağı, antik dünyanın yedi harikasından biriydi.</li></ul><ul><li><strong>Celsus Kütüphanesi</strong>: Efes Antik Kenti'nde yer alan Celsus Kütüphanesi, antik Roma'nın önemli yapılarından biridir.</li></ul><ul><li><strong>Büyük Tiyatro</strong>: Efes Antik Kenti'nde bulunan Büyük Tiyatro, Roma dönemindeki önemli eğlence merkezlerinden biriydi.</li></ul><ul><li style="box-sizing: border-box;"><b>Seferihisar:</b> İzmir'in güneyinde yer alan Seferihisar, çok eski yerleşim yerlerine ev sahipliği yapması ile de tarihsel öneme sahip. Sakin şehir ağına dahil edilmiştir.</li></ul><br /><span style="font-size: small;">➤ <b>KARABÜK (SAFRANBOLU)</b></span><ul><li><strong>Safranbolu</strong>: Safranbolu, Osmanlı döneminden kalma tarihi konakları, dar sokakları ve geleneksel mimarisiyle ünlüdür. UNESCO Dünya Mirası Listesi'nde yer alır.</li><li><b>Safranbolu:</b> 4 Mart 2024'te Sakin Şehir ağına dahil edilmiştir.</li></ul><br /><span style="font-size: small;">➤ <b>KARS (ANİ HARABELERİ)</b></span><ul><li><strong>Ani Harabeleri</strong>: Ani, Orta Çağ'da önemli bir şehir olan ve çeşitli medeniyetlere ev sahipliği yapmış bir yerdir. Kalıntıları bugün Ani Harabeleri olarak bilinir.</li></ul><br /><span style="font-size: small;">➤ <b>KONYA</b></span><ul><li><strong>Mevlana Müzesi</strong>: Mevlana Celaleddin Rumi'nin türbesi.</li></ul><ul><li><strong>Çatalhöyük</strong>: Neolitik döneme ait önemli bir arkeolojik alan.</li></ul><ul><li><strong>Alaeddin Camii</strong>: Selçuklu döneminden kalma tarihi cami.</li></ul><br /><span style="font-size: small;">➤ <b>MERSİN</b></span><ul><li><strong>Kızkalesi</strong>: Deniz içinde yer alan tarihi bir kaledir.</li></ul><ul><li><strong>St. Paul Kilisesi</strong>: Hristiyanlığın önemli figürlerinden St. Paul'ün adına yapılmış bir kilisedir.</li></ul><ul><li><strong>Tarsus Şelalesi</strong>: Doğal güzelliği ve tarihi ile ünlüdür.</li></ul><br /><span style="font-size: small;">➤ <b>MUĞLA</b></span><ul><li><strong>Bodrum Kalesi</strong>: Şövalyeler tarafından inşa edilmiş, bugün Bodrum Sualtı Arkeoloji Müzesi'ne ev sahipliği yapar.</li></ul><ul><li><strong>Kaunos Antik Kenti</strong>: Dalyan'da bulunan antik kent, kaya mezarları ile ünlüdür.</li></ul><ul><li><strong>Fethiye Amintas Kaya Mezarları</strong>: Likya dönemine ait kaya mezarları.</li><li><b>Akyaka:</b> Cittaslow Uluslararası Koordinasyon Komitesi tarafından 2011'de ''Sakin Şehir'' ilan edildi.</li></ul><br /><span style="font-size: small;">➤ <b>NEVŞEHİR (KAPADOKYA)</b></span><ul><li><strong>Peri Bacaları</strong>: Kapadokya'nın eşsiz doğal oluşumları olan peri bacaları, bölgenin sembolüdür.</li></ul><ul><li><strong>Göreme Açık Hava Müzesi</strong>: Tarihi kiliseleri ve manastırlarıyla ünlü olan Göreme Açık Hava Müzesi, Kapadokya'nın en önemli turistik noktalarından biridir.</li></ul><ul><li><strong>Ürgüp</strong>: Kapadokya'nın en popüler kasabalarından biri olan Ürgüp, tarihi konakları ve peri bacalarıyla ünlüdür.</li></ul><br /><span style="font-size: small;">➤ <b>ŞANLIURFA (GÖBEKLİ TEPE)</b></span><ul><li><strong>Göbekli Tepe</strong>: İnsanlık tarihinde bilinen en eski tapınak kompleksi olan Göbekli Tepe, Şanlıurfa yakınlarında bulunur.</li></ul><br /><span style="font-size: small;">➤ <b>TRABZON</b></span><ul><li><strong>Sumela Manastırı</strong>: Karadeniz'in eteklerinde yer alır.</li></ul><ul><li><strong>Trabzon Ayasofya Müzesi</strong>: Bizans dönemine ait yapı.</li></ul><ul><li><strong>Uzungöl</strong>: Doğal güzellikleri ile ünlüdür.</li></ul><p></p><br /><p></p>
+.dark-mode-toggle.active {
+    color: #000; 
+}
 
-                        
-                        
-            </div>
+.slide.dark-mode {
+    background-color: #000; 
+}
 
-            <div class="card-content" data-category="ilkler">
-                <div class="quiz" id="ilkler-quiz">
-                    <h3>İlkler Günün Sorusu</h3>
-                    <div class="question">
-                        <p>Tarihte bilinen ilk büyük Türk imparatorluğu hangisidir?</p>
-                        <label class="answer" data-answer="A">
-                            <input type="radio" name="ilkler-q1" value="A" onclick="checkAnswer('ilkler', 'A')"> A) Hun İmparatorluğu
-                        </label>
-                        <label class="answer" data-answer="B">
-                            <input type="radio" name="ilkler-q1" value="B" onclick="checkAnswer('ilkler', 'B')"> B) Göktürk İmparatorluğu
-                        </label>
-                    </div>
-                    <div class="result" id="ilkler-result"></div>
-                </div>
-                <img src="https://i.hizliresim.com/8mrg7c0.jpg" alt="Mobil uyumlu görsel">
-                <h2>İLKLER İÇERİĞİ</h2>
-                <p>
-                    <ul style="text-align: left;">
-                   
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-<p>&nbsp;➤&nbsp; Metin</p>
-                      
-        </div>
-    </main>
+/* Sosyal medya ikonları */
+.social-media {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+}
 
-    <footer class="social-media">
-        <ul>
-            <li><a href="https://www.instagram.com/quizkpss" target="_blank"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="https://tiktok.com/@quizkpss" target="_blank"><i class="fab fa-tiktok"></i></a></li>
-            <li><a href="https://t.me/quizkpssyeni" target="_blank"><i class="fab fa-telegram"></i></a></li>
-          <button id="goTopBtn" onclick="topFunction()" title="Üste Dön"><i class="fas fa-arrow-up"></i></button>
-        </ul>
-    </footer>
+.social-media ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.social-media li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-media a {
+    color: #333;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #ffc107; 
+}
+
+.social-media.dark-mode {
+    background-color: #222;
+}
+
+.social-media.dark-mode a {
+    color: #fff;
+}
+
+.social-media.dark-mode a:hover {
+    color: #ffc107; 
+}
+
+/* Karanlık modda ikon renkleri */
+.dark-mode-toggle .fa-moon {
+    color: #d9d9d9; 
+}
+
+.dark-mode-toggle.active .fa-sun {
+    color: #f5c623; 
+}
+
+/* Quiz stilleri */
+.quiz {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.quiz .question {
+    margin-bottom: 10px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    padding: 15px;
+    border-radius: 10px; 
+    background-color:##00000000; 
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.quiz .question p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: interal; 
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.answer:hover {
+    background-color: #e9e9e9;
+}
+
+.answer input[type="radio"]:checked + label {
+    background-color: #4CAF50; /* Yeşil */
+    color: #fff;
+}
+
+.answer input[type="radio"]:checked + label.wrong {
+    background-color: #f44336; /* Kırmızı */
+    color: #fff;
+}
+
+.quiz .result {
+    margin-top: 10px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-around;
+}
+
+#goTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.7; 
+  transition: opacity 0.3s ease;
+}
+
+#goTopBtn:hover {
+  opacity: 1; 
+}
+
+#goTopBtn i {
+  font-size: 20px; 
+}
+
+/* Karanlık modda soru çerçevesi */
+.quiz .question.dark-mode {
+    background-color: #111; 
+    color: #fff; 
+    border: 2px solid #fff; 
+}
+
+.dark-mode-toggle .fa-sun {
+    color: #ffc107; /* Güneş sarı */
+}
+
+.dark-mode-toggle .fa-moon {
+    color: #ffc107; /* Ay sarı */
+}
+
+/* Font Kontrol Stilleri */
+.font-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px; /* İçerikle arasında boşluk bırakmak için */
+}
+
+.font-controls button {
+   margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff0;
+    cursor: pointer;
+    font-size: 14px;
+    color: black;
+
+  
+}
+
+/* ...diğer stiller... */
+
+/* Font Kontrol Düğmeleri - Karanlık Mod */
+.dark-mode .font-controls button {
+  background-color: #333; /* Koyu arka plan */
+  color: #fff;            /* Açık renk metin */
+  border: 1px solid #ccc; /* Daha açık bir kenarlık */
+}
+
+.dark-mode .font-controls button:hover {
+  background-color: #555; /* Daha açık bir hover rengi */
+}
